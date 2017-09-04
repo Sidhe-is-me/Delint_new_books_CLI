@@ -2,24 +2,40 @@ class NewBooks::CLI
 
 
   def call
+    welcome
     puts "The Newest books are:"
     list_books
     menu
     goodby
   end
 
+  def welcome
+  puts  <<-DOC
+                  .-~~~~~~~~~-._       _.-~~~~~~~~~-.
+              __.'              ~.   .~              `.__
+            .'//                  \./                  \\`.
+          .'//                     |                     \\`.
+        .'// .-~"""""""~~~~-._     |     _,-~~~~"""""""~-. \\`.
+      .'//.-"                 `-.  |  .-'                 "-.\\`.
+    .'//______.============-..   \ | /   ..-============.______\\`.
+  .'______________________________\|/______________________________`.
+
+     DOC
+  end
+
   def list_books
     #insert fake data for now.
-    puts <<-DOC
-    1. The Wind in His Heart - Triskell Press - 2017
-    2 Our Lady of the Harbour - Triskell Press - 2016
-    DOC
+
+
+     NewBooks::Book.today
+
   end
 
   def menu
     input = nil
     while input != "exit"
-        puts "Enter the number of the book you would like more info on, list to see the book list again or exit to leave:"
+        puts "Enter the number of the book you would like more info on,
+         list to see the book list again or exit to leave:"
         input = gets.strip
       case input
       when "1"
@@ -37,11 +53,12 @@ class NewBooks::CLI
 def goodby
   puts "Thanks for checking for new books! Keep reading!!
 
-That's the thing with magic. You've got to know it's still here, all around us,
-or it just stays invisible for you.
-Don't forget - no one else sees the world the way you do,
-so no one else can tell the stories that you have to tell.
-I want to touch the heart of the world and make it smile. ~Charles DeLint"
+  ~~It's all a matter of paying attention,
+  being awake in the present moment,
+  and not expecting a huge payoff.
+  The magic in this world seems to work in
+  whispers and small kindnesses.”
+  ~Charles de Lint"
 end
 
 
