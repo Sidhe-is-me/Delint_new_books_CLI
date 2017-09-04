@@ -1,4 +1,4 @@
-require "new_books/version"
+require_relative "new_books/version"
 
 module NewBooks
   # Your code goes here...
