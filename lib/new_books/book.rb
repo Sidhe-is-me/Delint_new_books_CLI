@@ -38,6 +38,15 @@ class NewBooks::Book
     end
     binding.pry
 
+    # doc.search(".excerpttext span")[1].text odd numbers are titles
+    # doc.search(".excerpttext span")[2].text even numbers are descriptions
+    i = 0
+    description =[]
+      descriptions = doc.search(".excerpttext span p").text
+      while i < descriptions
+        descriptions << doc.search(".excerpttext span p")[i].text
+        i +=1
+      end
   end
 
 
