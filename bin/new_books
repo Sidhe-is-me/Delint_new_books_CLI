@@ -1,0 +1,3 @@
+#!/usr/bin/env ruby
+
+NewBooks::CLI.new.call
