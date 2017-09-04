@@ -1,6 +1,4 @@
 #!/usr/bin/env ruby
-
-
 require './lib/new_books'
 
 NewBooks::CLI.new.call

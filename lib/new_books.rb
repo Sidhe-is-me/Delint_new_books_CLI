@@ -1,5 +1,3 @@
+#this file acts as environment
 require_relative "new_books/version"
-
-module NewBooks
-  # Your code goes here...
-end
+require_relative './new_books/cli'
