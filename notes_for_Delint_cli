@@ -1,0 +1,39 @@
+Notes:
+Notes on building Ruby Gem to list Charles' De lints- New books Books and details
+
+1. Plan your gem, imagine your interface [x]
+2. Start with e project structure- google [x]
+3. Start with the entry point - the file run [x]
+4. force that to build the CLI interface [x]
+5. stub out the interface
+6. start making things real
+7. discover objects
+8. program
+
+User can list books
+This Gem will allow a user to input a list number of a book to get small description
+
+The CLI will output book title and ask if user would like more information
+
+How to publish the gem
+http://railscasts.com/episodes/245-new-gem-with-bundler?autoplay=true
+
+
+What is a book
+a book has a tile
+a book has a publisher
+a book has a  release year
+a book has a description
+
+
+user types new_books
+
+Show a list of new books
+
+1. The Wind in His Heart - Triskell Press - 2017
+2 Our Lady of the Harbour - Triskell Press - 2016
+
+Which book would you like to know more about?
+
+enters number
+description also included with book info
