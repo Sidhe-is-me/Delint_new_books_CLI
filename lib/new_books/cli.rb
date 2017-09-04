@@ -5,7 +5,7 @@ class NewBooks::CLI
     puts "The Newest books are:"
     list_books
     menu
-    goodb
+    goodby
   end
 
   def list_books
@@ -19,13 +19,17 @@ class NewBooks::CLI
   def menu
     input = nil
     while input != "exit"
-        puts "Enter the number of the book you would like more info on:"
+        puts "Enter the number of the book you would like more info on, list to see the book list again or exit to leave:"
         input = gets.strip
       case input
       when "1"
         puts "More info on book one"
       when "2"
         puts "More info on book 2"
+      when "list"
+        list_books
+      else
+        puts "Invalid input please put list or exit"
       end
     end
   end
