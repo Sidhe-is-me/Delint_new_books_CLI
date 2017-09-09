@@ -35,7 +35,7 @@ class NewBooks::Book
     book = self.new
     number_of_books = doc.search("a.sitelinx").count
     while i < number_of_books
-      book << titlegi =doc.search("a.sitelinx")[i].text
+      book << title =doc.search("a.sitelinx")[i].text
       book << publisher ="Triskell Press"
       book << description = "fake data"
       # book.description << doc.search("span.excerpttext")[i].text.strip
