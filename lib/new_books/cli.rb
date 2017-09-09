@@ -24,7 +24,7 @@ class NewBooks::CLI
 
   def list_books
     @new_books = NewBooks::Book.newest_books
-    binding.pry
+binding.pry
     @new_books.each_with_index do |book, i|
       puts "#{i}. #{book}"
     end
@@ -36,7 +36,7 @@ class NewBooks::CLI
         puts "Enter the number of the book you would like more info on,
          list to see the book list again or exit to leave:"
         input = gets.strip
-
+        list_books
         if input.to_i > 0
           new_book = @new_books[input.to_i-1]
           puts "#{title} - #{publisher}  #{description}"
