@@ -1,22 +1,11 @@
 class NewBooks::Book
 
-  def self.today
+  attr_accessor :title, :publisher, :description
+  def self.newest_books
     #this should return the instances of newly published books
     # puts <<-DOC
-    # 1. The Wind in His Heart - Triskell Press - 2017
-    # 2 Our Lady of the Harbour - Triskell Press - 2016
+
     # DOC
-
-
-    # book_1.title
-    # book_1.publisher
-    # book_1.year
-    # book_1.description
-    #
-    # book_2.title
-    # book_2.publisher
-    # book_2.year
-    # book_2.description
     self.scrape_books
   end
 
@@ -31,22 +20,15 @@ class NewBooks::Book
     doc = Nokogiri::HTML(open("https://www.sfsite.com/charlesdelint/"))
     i = 0
     titles = []
+    descriptions =[]
+    publishers = []
     number_of_books = doc.search("a.sitelinx").count
     while i < number_of_books
       titles << doc.search("a.sitelinx")[i].text
+      publishers << "Triskell Press"
+      descriptions << doc.search("span.excerpttext")[i].text
       i += 1
     end
-    binding.pry
-
-    # doc.search(".excerpttext span")[1].text odd numbers are titles
-    # doc.search(".excerpttext span")[2].text even numbers are descriptions
-    i = 0
-    description =[]
-      descriptions = doc.search(".excerpttext span p").text
-      while i < descriptions
-        descriptions << doc.search(".excerpttext span p")[i].text
-        i +=1
-      end
   end
 
 

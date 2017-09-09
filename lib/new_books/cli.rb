@@ -3,7 +3,6 @@ class NewBooks::CLI
 
   def call
     welcome
-    puts "The Newest books are:"
     list_books
     menu
     goodby
@@ -24,10 +23,10 @@ class NewBooks::CLI
   end
 
   def list_books
-    #insert fake data for now.
 
 
-     NewBooks::Book.today
+
+     NewBooks::Book.newest_books
 
   end
 
@@ -37,17 +36,22 @@ class NewBooks::CLI
         puts "Enter the number of the book you would like more info on,
          list to see the book list again or exit to leave:"
         input = gets.strip
-      case input
-      when "1"
-        puts "More info on book one"
-      when "2"
-        puts "More info on book 2"
-      when "list"
-        list_books
-      else
-        puts "Invalid input please put list or exit"
-      end
-    end
+        if input.to_i > 0
+
+
+
+
+    #   case input
+    #   when "1"
+    #     puts "More info on book one"
+    #   when "2"
+    #     puts "More info on book 2"
+    #   when "list"
+    #     list_books
+    #   else
+    #     puts "Invalid input please put list or exit"
+    #   end
+    # end
   end
 
 def goodby
