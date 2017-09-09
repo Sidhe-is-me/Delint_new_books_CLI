@@ -26,7 +26,9 @@ class NewBooks::Book
     while i < number_of_books
       titles << doc.search("a.sitelinx")[i].text
       publishers << "Triskell Press"
-      descriptions << doc.search("span.excerpttext")[i].text
+       #descriptions << doc.search("span.excerpttext")[i].text.strip
+       #binding.pry
+      #undefinde method text Sfor nil class- shows as text looks like an array
       i += 1
     end
   end
