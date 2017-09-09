@@ -5,3 +5,4 @@ require "pry"
 require_relative "new_books/version"
 require_relative './new_books/cli'
 require_relative './new_books/book'
+require_relative './new_books/scraper'
