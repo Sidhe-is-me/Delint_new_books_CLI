@@ -3,8 +3,9 @@ class NewBooks::CLI
 
   def call
     welcome
-    list_books
-    menu
+    make_books
+    #list_books
+    #menu
     goodby
   end
 
@@ -20,6 +21,10 @@ class NewBooks::CLI
   .'______________________________\|/______________________________`.
 
      DOC
+  end
+
+  def make_books
+    books_array = Scraper.scrape_site("https://www.sfsite.com/charlesdelint/")
   end
 
   def list_books
