@@ -4,7 +4,7 @@ class NewBooks::CLI
   def call
     welcome
     make_books
-    #list_books
+    list_titles
     #menu
     goodby
   end
@@ -25,13 +25,13 @@ class NewBooks::CLI
 
   def make_books
     books_array = Scraper.scrape_site("https://www.sfsite.com/charlesdelint/")
+    NewBooks::Book.create_from_collection(books_array)
   end
 
-  def list_books
-    @new_books = NewBooks::Book.newest_books
-binding.pry
-    @new_books.each_with_index do |book, i|
-      puts "#{i}. #{book}"
+  def list_titles
+    NewBooks::Book.all.each_with_index do |book, i|
+
+      puts " #{i+1}. #{book.title}"
     end
   end
 

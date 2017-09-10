@@ -13,7 +13,6 @@ class Scraper
       books << {title: title , description: description , publisher: publisher}
       i += 1
     end
-    binding.pry
     books
   end
 
