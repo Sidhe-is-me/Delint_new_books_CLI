@@ -5,11 +5,13 @@ class NewBooks::CLI
     welcome
     make_books
     list_titles
-    #menu
+    menu
     goodby
   end
 
   def welcome
+   puts "Welcome to Charle's DeLint's newest books list!"
+
   puts  <<-DOC
                   .-~~~~~~~~~-._       _.-~~~~~~~~~-.
               __.'              ~.   .~              `.__
@@ -21,6 +23,8 @@ class NewBooks::CLI
   .'______________________________\|/______________________________`.
 
      DOC
+
+
   end
 
   def make_books
@@ -29,6 +33,7 @@ class NewBooks::CLI
   end
 
   def list_titles
+
     NewBooks::Book.all.each_with_index do |book, i|
 
       puts " #{i+1}. #{book.title}"
@@ -39,16 +44,21 @@ class NewBooks::CLI
     input = nil
     while input != "exit"
         puts "Enter the number of the book you would like more info on,
-         list to see the book list again or exit to leave:"
+              list to see the book list again
+              or exit to leave:"
         input = gets.strip
-        list_books
-        if input.to_i > 0
-          new_book = @new_books[input.to_i-1]
-          puts "#{title} - #{publisher}  #{description}"
+        if input.to_i < 14 && input.to_i > 0
+          puts "Title:"
+            puts  NewBooks::Book.all[input.to_i-1].title
+          puts "Publisher:"
+            puts  NewBooks::Book.all[input.to_i-1].publisher
+          puts "Description:"
+            puts  NewBooks::Book.all[input.to_i-1].description
         elsif input == "list"
-          list_books
+          list_titles
         else
-        puts "Invalid input please put list or exit"
+        puts "Invalid input please put number of title you would like more
+        information on, list or exit. "
       end
     end
   end
