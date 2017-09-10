@@ -4,40 +4,20 @@ class NewBooks::Book
 
   @@all = []
 
-  def self.newest_books
-    #this should return the instances of newly published books
-    self.scrape_books
+  def initialize(book_hash)
+    book_hash.each do |attributes, value|
+      self.send("#{attributes}=", value)
+    end
+    @all << self
   end
 
-  def self.scrape_books
-    books = []
-    books << self.scrape_site
-    books
-
+  def self.create_from_collection(books_array)
+    books_array.each do |book_hash|
+      Book.new(book_hash)
+    end
   end
 
-
-  def self.scrape_site
-    book = []
-    doc = Nokogiri::HTML(open("https://www.sfsite.com/charlesdelint/"))
-
-    # doc.search('tr td.excerpttext').each do |table|
-    #
-    #   doc.search("a.sitelinx").each do |title|
-    #     binding.pry
-    #     book[:title] = title.text
-    #   end
-    #     doc.search("span.excerpttext").each do |description|
-    #     book[:description] = doc.search("span.excerpttext").first.text.strip
-    #   end
-    #     book [:publisher] = "Triskell Press"
-    #
-    #   #book << {title: title, description: description, publisher: publisher }
-    #    #binding.pry
-    #   end
-    # end
-    #   book
-end
-
-
+  def self.all
+      @all.to_a
+  end
 end
