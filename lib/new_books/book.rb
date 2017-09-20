@@ -20,4 +20,8 @@ class NewBooks::Book
   def self.all
       @@all.to_a
   end
+
+  def self.search_description(keyword)
+    @@all.select { |book|book.description.downcase.include? keyword.downcase }
+  end
 end

@@ -1,4 +1,6 @@
 #!/usr/bin/env ruby
-require './lib/new_books'
+
+#require '/Users/yvonnedreptate/development/code/new_books/lib/new_books'
+require_relative '../lib/new_books'
 
 NewBooks::CLI.new.call

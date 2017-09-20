@@ -1,6 +1,4 @@
 class NewBooks::CLI
-
-
   def call
     welcome
     make_books
@@ -24,19 +22,18 @@ class NewBooks::CLI
 
      DOC
 
-
   end
 
   def make_books
     books_array = Scraper.scrape_site("https://www.sfsite.com/charlesdelint/")
     NewBooks::Book.create_from_collection(books_array)
+    binding.pry
+
   end
 
   def list_titles
-
     NewBooks::Book.all.each_with_index do |book, i|
-
-      puts " #{i+1}. #{book.title}"
+    puts " #{i+1}. #{book.title}"
     end
   end
 
@@ -47,15 +44,17 @@ class NewBooks::CLI
               list to see the book list again
               or exit to leave:"
         input = gets.strip
-        if input.to_i < 14 && input.to_i > 0
+        if input.to_i <= 13 && input.to_i > 0
+          book = NewBooks::Book.all[input.to_i-1]
           puts "Title:"
-            puts  NewBooks::Book.all[input.to_i-1].title
+            puts  book.title
           puts "Publisher:"
-            puts  NewBooks::Book.all[input.to_i-1].publisher
+            puts  book.publisher
           puts "Description:"
-            puts  NewBooks::Book.all[input.to_i-1].description
+            puts  book.description
         elsif input == "list"
           list_titles
+        elsif input = "exit"
         else
         puts "Invalid input please put number of title you would like more
         information on, list or exit. "
